@@ -12,6 +12,7 @@ import {
 import { isNonNullObject, Optional } from 'ts-data-forge';
 import type { UnknownRecord } from 'ts-type-forge';
 import type { RoutesProps } from '../routes-props.mjs';
+import { RoutesCase } from './routes-case.js';
 import { useObservableValue } from './use-observable-value.mjs';
 
 /** `Routes` bound to `router` (`ReactRouter['Routes']`). */
@@ -42,9 +43,11 @@ export const createRoutes = <R extends AnyRoutes>(
     return selected === undefined ? (
       <>{notFound}</>
     ) : (
-      <React.Fragment key={selected.key}>
-        {selected.draw(selected.values)}
-      </React.Fragment>
+      <RoutesCase
+        key={selected.key}
+        draw={selected.draw}
+        values={selected.values}
+      />
     );
   };
 
