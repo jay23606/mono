@@ -78,6 +78,7 @@ change other packages consume. Nor are the packages a change to
 `tools/configs/` configures; the run says which `ws:*` commands to reach for.
 Under `strict-lib/` only the tooling's type check, lint and oxfmt run; the
 generators, which rewrite thousands of files, are `strict-lib-gen.yml`'s.
-Browser tests, end-to-end tests and `ws:check:dist` are not run, nor is
+Browser tests, end-to-end tests, the Firestore rules tests
+(`check:test:rules`, which need Java) and `ws:check:dist` are not run, nor is
 `check:cspell` over the whole tree, so a `words` entry that the diff made dead
 is not found.
